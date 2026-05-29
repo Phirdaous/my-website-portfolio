@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Muhammad Phirdaus's personal portfolio — aspiring web developer.">
+    <title>Muhammad Phirdaus | Web Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="site-header">
+        <div class="container header-inner">
+            <div class="logo">Phirdaus<span class="dot">.</span></div>
+            <nav class="nav-desktop" aria-label="Main navigation">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <button id="hamburger-btn" class="hamburger" aria-label="Toggle navigation menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+        <nav id="mobile-nav" class="nav-mobile" aria-label="Mobile navigation" hidden>
+            <div class="container">
+                <a href="#home" class="nav-link mobile-link">Home</a>
+                <a href="#about" class="nav-link mobile-link">About</a>
+                <a href="#projects" class="nav-link mobile-link">Projects</a>
+                <a href="#contact" class="nav-link mobile-link">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <img src="image.png" alt="Muhammad Phirdaus" class="hero-image">
+            <div class="hero-text">
+                <p class="hero-greeting">Hello, I am</p>
+                <h1 class="hero-title">Muhammad Phirdaus</h1>
+                <p class="hero-subtitle">An enthusiastic learner and aspiring web developer on a journey to craft engaging and responsive digital experiences.</p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">Things I've Worked On</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-intro">
+                <p>
+                    I'm a passionate web developer currently expanding my skill set and diving into the world of modern web technologies. I love learning by doing, and I am driven by a desire to build digital products that combine clean code with practical functionality. Every day is a new opportunity to learn, code, and improve!
+                </p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <h3>Development</h3>
+                    <p>Learning to write clean, efficient code using modern architectures and best practices.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3>Design</h3>
+                    <p>Exploring how to create accessible and user-friendly interfaces with a keen eye for detail.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">⚡</div>
+                    <h3>Problem Solving</h3>
+                    <p>Embracing challenges, debugging issues, and constantly improving my problem-solving skills.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Things I've Worked On</h2>
+            <p class="section-subtitle">A selection of my recent practice projects and explorations.</p>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-info">
+                        <h3>E-Commerce Platform</h3>
+                        <p>A modern online shopping experience with seamless checkout and product management.</p>
+                        <div class="tags"><span class="tag">Next.js</span><span class="tag">Tailwind</span><span class="tag">Stripe</span></div>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-info">
+                        <h3>Creative Agency</h3>
+                        <p>A sleek and responsive landing page for an award-winning creative design agency.</p>
+                        <div class="tags"><span class="tag">React</span><span class="tag">Framer Motion</span></div>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <div class="project-info">
+                        <h3>Finance Dashboard</h3>
+                        <p>An intuitive mobile-first analytics dashboard with dynamic charts and dark mode.</p>
+                        <div class="tags"><span class="tag">Vue</span><span class="tag">Chart.js</span><span class="tag">Firebase</span></div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container footer-inner">
+            <h2 class="footer-title">Let's Connect</h2>
+            <p class="footer-desc">I'm currently looking for learning opportunities and entry-level positions. I'd love to chat if you have any advice or projects in mind!</p>
+            <a href="mailto:phirdaus@example.com" class="btn btn-primary email-btn">Say Hello</a>
+            <p class="footer-copy">© 2026 Muhammad Phirdaus. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+
+        hamburgerBtn.addEventListener('click', () => {
+            const isExpanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+            hamburgerBtn.setAttribute('aria-expanded', !isExpanded);
+            
+            if (isExpanded) {
+                mobileNav.setAttribute('hidden', '');
+            } else {
+                mobileNav.removeAttribute('hidden');
+            }
+        });
+
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+                mobileNav.setAttribute('hidden', '');
+            });
+        });
+    </script>
+</body>
+</html>
